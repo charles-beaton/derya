@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rıhtım ve Kozmik Deniz — Derya için</title>
+  <meta name="description" content="Rıhtım ve Kozmik Deniz — Charles tarafından Derya için yazılmış 11 bölümlük dijital şiir kitabı.">
+
+  <!-- Google Fonts: Cormorant Garamond, Cinzel, Playfair Display, Alex Brush -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;500;600;700&family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css?v=1787325881898">
+</head>
+<body class="mode-booklet">
+
+  <!-- Background Ambience & Optical Lens Flare Layers -->
+  <div class="ebru-background-layer" id="ebruBackground"></div>
+  <div class="ambient-golden-glow" id="ambientGoldenGlow">
+    <div class="flare-light-source" id="flareLightSource">
+      <div class="flare-core"></div>
+      <div class="flare-halo"></div>
+      <div class="flare-spike-cross"></div>
+      <div class="flare-spike-diag"></div>
+    </div>
+    <div class="flare-streak" id="flareStreak"></div>
+    <div class="flare-god-rays" id="flareGodRays"></div>
+    <div class="flare-ghosts" id="flareGhosts">
+      <div class="flare-ghost ghost-iris-1"></div>
+      <div class="flare-ghost ghost-disk-1"></div>
+      <div class="flare-ghost ghost-ring-1"></div>
+      <div class="flare-ghost ghost-disk-2"></div>
+      <div class="flare-ghost ghost-iris-2"></div>
+      <div class="flare-ghost ghost-cyan-orb"></div>
+      <div class="flare-ghost ghost-ring-large"></div>
+    </div>
+  </div>
+  <canvas id="cosmicCanvas" class="cosmic-canvas"></canvas>
+  <div class="vignette-overlay"></div>
+
+  <!-- Password Protection / Luxury Lock Screen -->
+  <section class="lock-screen-container" id="lockScreen">
+    <div class="lock-card">
+      <div class="gold-frame-outer"></div>
+      <div class="gold-frame-inner"></div>
+      <div class="corner-ornament top-left"></div>
+      <div class="corner-ornament top-right"></div>
+      <div class="corner-ornament bottom-left"></div>
+      <div class="corner-ornament bottom-right"></div>
+
+      <div class="ornament-top">❦ ❧</div>
+      <h2 class="lock-title">Derya için Şiirler</h2>
+      <p class="lock-subtitle">Özel Şiir Kitaplığı</p>
+      
+      <p class="lock-prompt">
+        Bu özel şiir kitaplığını açmak için lütfen parolayı giriniz.
+      </p>
+
+      <form class="lock-form" id="lockForm">
+        <div class="lock-input-wrapper">
+          <input 
+            type="password" 
+            id="passwordInput" 
+            class="lock-input" 
+            placeholder="Parola..." 
+            autocomplete="current-password"
+            autocapitalize="none"
+            autocorrect="off"
+            spellcheck="false"
+            required 
+            autofocus
+          >
+          <button type="button" class="btn-toggle-pw" id="btnTogglePw" aria-label="Parolayı Göster/Gizle" title="Parolayı Göster/Gizle">
+            <svg class="icon-eye" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            <svg class="icon-eye-off hidden" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+              <line x1="1" y1="1" x2="23" y2="23"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="lock-error" id="lockError"></div>
+        <button type="submit" class="btn-read-start" id="btnUnlock">
+          <span>Kitaplığı Aç</span>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Header / Navigation Bar (Hidden until unlocked) -->
+  <header class="app-header hidden" id="appHeader">
+    <div class="header-left">
+      <button class="icon-btn" id="btnLibrary" title="Kitaplığa Dön" aria-label="Kitaplık">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+        </svg>
+        <span class="btn-label">Kitaplık</span>
+      </button>
+
+      <button class="icon-btn" id="btnToc" title="İçindekiler / Bölümler" aria-label="İçindekiler">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="15" y2="12"></line>
+          <line x1="3" y1="18" x2="18" y2="18"></line>
+        </svg>
+        <span class="btn-label">Bölümler</span>
+      </button>
+    </div>
+
+    <div class="header-center">
+      <h1 class="header-title" id="headerTitle">Derya için Şiirler</h1>
+      <span class="header-subtitle" id="headerSubtitle">Özel Şiir Kitaplığı</span>
+    </div>
+
+    <div class="header-right">
+      <!-- Settings Gear Dropdown Button -->
+      <div class="settings-dropdown-wrapper" id="settingsWrapper">
+        <button class="icon-btn" id="btnSettings" title="Ayarlar ve Seçenekler" aria-label="Ayarlar" aria-haspopup="true" aria-expanded="false">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          <span class="btn-label">Ayarlar</span>
+        </button>
+
+        <!-- Dropdown Menu with Collapsible Grouped Drawers -->
+        <div class="settings-menu" id="settingsMenu" aria-hidden="true">
+          <div class="settings-menu-header">
+            <span>Ayarlar & Görünüm</span>
+          </div>
+
+          <!-- Audio Section -->
+          <div class="settings-group-audio" id="groupAudio">
+            <button class="settings-menu-item" id="btnAudio" role="menuitem">
+              <div class="menu-item-left">
+                <svg class="icon-sound-off" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                  <line x1="23" y1="9" x2="17" y2="15"></line>
+                  <line x1="17" y1="9" x2="23" y2="15"></line>
+                </svg>
+                <svg class="icon-sound-on hidden" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                </svg>
+                <span class="menu-item-label">Ambiyans Sesi</span>
+              </div>
+              <span class="menu-item-status" id="audioStatusText">Kapalı</span>
+            </button>
+
+            <!-- Master Volume Slider Control (Collapses when sound is off) -->
+            <div class="settings-volume-control" id="volumeControlContainer">
+              <div class="volume-slider-header">
+                <span class="volume-label">Ses Düzeyi</span>
+                <span class="volume-percent" id="volumePercent">14%</span>
+              </div>
+              <div class="volume-slider-row">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="var(--color-gold-base)" stroke-width="1.6">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                </svg>
+                <input type="range" id="volumeSlider" min="0" max="100" value="14" class="custom-gold-slider" aria-label="Ses Düzeyi">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="var(--color-gold-bright)" stroke-width="1.6">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Drawer 1: Shoreline Waves & Acoustics -->
+            <div class="settings-drawer" id="drawerWavesContainer">
+              <button class="settings-drawer-toggle" id="toggleDrawerWaves" aria-expanded="false">
+                <span class="drawer-toggle-left">
+                  <span>🌊 Okyanus & Kıyı Akustiği</span>
+                </span>
+                <svg class="drawer-chevron" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="settings-drawer-content" id="contentDrawerWaves">
+                <div class="settings-layer-control">
+                  <div class="layer-slider-header">
+                    <span class="layer-label">🌊 Dalgalar (Gövde)</span>
+                    <span class="layer-pct" id="pctWaves">115%</span>
+                  </div>
+                  <input type="range" id="sliderWaves" min="0" max="200" value="115" class="custom-gold-slider" aria-label="Dalga Sesi">
+                </div>
+
+                <div class="settings-layer-control">
+                  <div class="layer-slider-header">
+                    <span class="layer-label">💥 Kırılma</span>
+                    <span class="layer-pct" id="pctCrash">22%</span>
+                  </div>
+                  <input type="range" id="sliderCrash" min="0" max="200" value="22" class="custom-gold-slider" aria-label="Kırılma Yoğunluğu">
+                </div>
+
+                <div class="settings-layer-control">
+                  <div class="layer-slider-header">
+                    <span class="layer-label">🫧 Köpük & Kum Hışırtısı</span>
+                    <span class="layer-pct" id="pctFoam">38%</span>
+                  </div>
+                  <input type="range" id="sliderFoam" min="0" max="200" value="38" class="custom-gold-slider" aria-label="Köpük ve Kum Hışırtısı">
+                </div>
+
+                <div class="settings-layer-control">
+                  <div class="layer-slider-header">
+                    <span class="layer-label">🕊️ Tiz Tıraşlama (Yumuşatma)</span>
+                    <span class="layer-pct" id="pctTrebleDamp">45%</span>
+                  </div>
+                  <input type="range" id="sliderTrebleDamp" min="20" max="200" value="45" class="custom-gold-slider" aria-label="Tiz Filtresi ve Sertlik Azaltma">
+                </div>
+
+                <div class="settings-layer-control">
+                  <div class="layer-slider-header">
+                    <span class="layer-label">🌀 Dalga Tüpü (Formant)</span>
+                    <span class="layer-pct" id="pctBarrel">28%</span>
+                  </div>
+                  <input type="range" id="sliderBarrel" min="0" max="200" value="28" class="custom-gold-slider" aria-label="Dalga Boşluğu Formant Rezonansı">
+                </div>
+
+                <div class="settings-layer-control">
+                  <div class="layer-slider-header">
+                    <span class="layer-label">🌊 Kabarma Tavanı</span>
+                    <span class="layer-pct" id="pctSwellCutoff">70%</span>
+                  </div>
+                  <input type="range" id="sliderSwellCutoff" min="20" max="300" value="70" class="custom-gold-slider" aria-label="Dalga Kabarma Filtre Tavanı">
+                </div>
+
+                <div class="settings-layer-control">
+                  <div class="layer-slider-header">
+                    <span class="layer-label">💨 Geri Çekilme Emişi</span>
+                    <span class="layer-pct" id="pctUndertow">45%</span>
+                  </div>
+                  <input type="range" id="sliderUndertow" min="0" max="250" value="45" class="custom-gold-slider" aria-label="Geri Çekilme Emişi">
+                </div>
+
+                <div class="settings-layer-control">
+                  <div class="layer-slider-header">
+                    <span class="layer-label">⏱️ Dalga Sıklığı</span>
+                    <span class="layer-pct" id="pctCadence">55%</span>
+                  </div>
+                  <input type="range" id="sliderCadence" min="30" max="300" value="55" class="custom-gold-slider" aria-label="Dalga Tekrar Sıklığı">
+                </div>
+              </div>
+            </div>
+
+            <!-- Drawer 2: Singing Bowls & Mind -->
+            <div class="settings-drawer" id="drawerBowlsContainer">
+              <button class="settings-drawer-toggle" id="toggleDrawerBowls" aria-expanded="false">
+                <span class="drawer-toggle-left">
+                  <span>🥣 Kristal Çanaklar & Zihin</span>
+                </span>
+                <svg class="drawer-chevron" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="settings-drawer-content" id="contentDrawerBowls">
+                <div class="settings-layer-control">
+                  <div class="layer-slider-header">
+                    <span class="layer-label">🥣 Çanak I (432Hz Kök)</span>
+                    <span class="layer-pct" id="pctBowl1">0%</span>
+                  </div>
+                  <input type="range" id="sliderBowl1" min="0" max="200" value="0" class="custom-gold-slider" aria-label="Kristal Çanak 1 (432Hz)">
+                </div>
+
+                <div class="settings-layer-control">
+                  <div class="layer-slider-header">
+                    <span class="layer-label">🥣 Çanak II (540Hz Armoni)</span>
+                    <span class="layer-pct" id="pctBowl2">0%</span>
+                  </div>
+                  <input type="range" id="sliderBowl2" min="0" max="200" value="0" class="custom-gold-slider" aria-label="Kristal Çanak 2 (540Hz)">
+                </div>
+
+                <div class="settings-layer-control">
+                  <div class="layer-slider-header">
+                    <span class="layer-label">🥣 Çanak III (648Hz Tepe)</span>
+                    <span class="layer-pct" id="pctBowl3">0%</span>
+                  </div>
+                  <input type="range" id="sliderBowl3" min="0" max="200" value="0" class="custom-gold-slider" aria-label="Kristal Çanak 3 (648Hz)">
+                </div>
+
+                <div class="settings-layer-control">
+                  <div class="layer-slider-header">
+                    <span class="layer-label">🧠 Biyonoral</span>
+                    <span class="layer-pct" id="pctBinaural">8%</span>
+                  </div>
+                  <input type="range" id="sliderBinaural" min="0" max="200" value="8" class="custom-gold-slider" aria-label="Biyonoral Beat">
+                </div>
+
+                <div class="settings-layer-control">
+                  <div class="layer-slider-header">
+                    <span class="layer-label">🎵 Alt Bas</span>
+                    <span class="layer-pct" id="pctSubBass">24%</span>
+                  </div>
+                  <input type="range" id="sliderSubBass" min="0" max="200" value="24" class="custom-gold-slider" aria-label="Alt Bas">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Drawer 3: Visual & Particle Effects -->
+          <div class="settings-drawer" id="drawerVisualsContainer">
+            <button class="settings-drawer-toggle" id="toggleDrawerVisuals" aria-expanded="false">
+              <span class="drawer-toggle-left">
+                <span>✨ Parçacıklar & Işık Efektleri</span>
+              </span>
+              <svg class="drawer-chevron" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="settings-drawer-content" id="contentDrawerVisuals">
+              <div class="settings-layer-control">
+                <div class="layer-slider-header">
+                  <span class="layer-label">✨ Parçacık Yoğunluğu</span>
+                  <span class="layer-pct" id="pctParticleDensity">59%</span>
+                </div>
+                <input type="range" id="sliderParticleDensity" min="0" max="200" value="59" class="custom-gold-slider" aria-label="Parçacık Yoğunluğu">
+              </div>
+
+              <div class="settings-layer-control">
+                <div class="layer-slider-header">
+                  <span class="layer-label">💨 Parçacık Hızı</span>
+                  <span class="layer-pct" id="pctParticleSpeed">41%</span>
+                </div>
+                <input type="range" id="sliderParticleSpeed" min="0" max="200" value="41" class="custom-gold-slider" aria-label="Parçacık Hızı">
+              </div>
+
+              <div class="settings-layer-control">
+                <div class="layer-slider-header">
+                  <span class="layer-label">🌟 Parçacık Parlaklığı</span>
+                  <span class="layer-pct" id="pctParticleGlow">111%</span>
+                </div>
+                <input type="range" id="sliderParticleGlow" min="0" max="200" value="111" class="custom-gold-slider" aria-label="Parçacık Parlaklığı">
+              </div>
+
+              <div class="settings-layer-control">
+                <div class="layer-slider-header">
+                  <span class="layer-label">✨ Flare Parlaklığı</span>
+                  <span class="layer-pct" id="pctGlowIntensity">49%</span>
+                </div>
+                <input type="range" id="sliderGlowIntensity" min="0" max="100" value="49" class="custom-gold-slider" aria-label="Lens Flare Parlaklığı">
+              </div>
+
+              <div class="settings-layer-control">
+                <div class="layer-slider-header">
+                  <span class="layer-label">💫 Hüzme / Salınım Hızı</span>
+                  <span class="layer-pct" id="pctGlowSpeed">45%</span>
+                </div>
+                <input type="range" id="sliderGlowSpeed" min="0" max="100" value="45" class="custom-gold-slider" aria-label="Lens Flare Hızı">
+              </div>
+            </div>
+          </div>
+
+          <!-- Visual Mode & Actions -->
+          <div class="settings-section-label">👁️ Görünüm & Seçenekler</div>
+
+          <button class="settings-menu-item" id="btnViewMode" role="menuitem">
+            <div class="menu-item-left">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="12" y1="3" x2="12" y2="21"></line>
+              </svg>
+              <span class="menu-item-label">Görünüm Modu</span>
+            </div>
+            <span class="menu-item-status" id="viewModeLabel">Kitap</span>
+          </button>
+
+          <button class="settings-menu-item" id="btnPrint" role="menuitem">
+            <div class="menu-item-left">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                <rect x="6" y="14" width="12" height="8"></rect>
+              </svg>
+              <span class="menu-item-label">Yazdır / PDF</span>
+            </div>
+          </button>
+
+          <button class="settings-menu-item" id="btnAudioGuide" role="menuitem">
+            <div class="menu-item-left">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="menu-item-label">Ses Evreni Hakkında</span>
+            </div>
+            <span class="menu-item-status">Bilgi</span>
+          </button>
+
+          <button class="settings-menu-item" id="btnFullscreen" role="menuitem">
+            <div class="menu-item-left">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+              </svg>
+              <span class="menu-item-label">Tam Ekran</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Progress Bar (Hidden until unlocked) -->
+  <div class="progress-bar-container hidden" id="progressBarContainer">
+    <div class="progress-bar-fill" id="progressBar"></div>
+  </div>
+
+  <!-- Main Booklet Container (Hidden until unlocked) -->
+  <main class="booklet-main hidden" id="bookletMain">
+    
+    <!-- Table of Contents Drawer / Modal -->
+    <aside class="toc-drawer" id="tocDrawer" aria-hidden="true">
+      <div class="toc-header">
+        <h2 class="toc-title">İçindekiler</h2>
+        <button class="close-btn" id="btnCloseToc" aria-label="Kapat">✕</button>
+      </div>
+      <div class="toc-subtitle">11 Bölüm • Rıhtım ve Kozmik Deniz</div>
+      <div class="toc-divider"></div>
+      <nav class="toc-list" id="tocList">
+        <!-- Generated Dynamically by JS -->
+      </nav>
+      <div class="toc-footer">
+        <p class="toc-dedication">“Sen bir denizsin... ve ben bir rıhtım olmak istiyorum.”</p>
+      </div>
+    </aside>
+    <div class="toc-backdrop" id="tocBackdrop"></div>
+
+    <!-- The Flipbook / Pages Stage (Populated via AES-256 decryption) -->
+    <div class="booklet-stage" id="bookletStage"></div>
+
+    <!-- Floating Navigation Controls -->
+    <nav class="booklet-controls" id="bookletControls" aria-label="Sayfa Gezintisi">
+      <button class="control-btn" id="btnPrevPage" title="Önceki Sayfa (Sol Ok Tuşu)" aria-label="Önceki Sayfa">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+        <span class="control-text">Önceki</span>
+      </button>
+
+      <div class="page-indicator-pill" id="pageIndicatorPill">
+        <span id="currentIndicator">Kapak</span>
+        <span class="indicator-sep">/</span>
+        <span id="totalIndicator">11</span>
+      </div>
+
+      <button class="control-btn" id="btnNextPage" title="Sonraki Sayfa (Sağ Ok veya Boşluk Tuşu)" aria-label="Sonraki Sayfa">
+        <span class="control-text">Sonraki</span>
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </nav>
+
+  </main>
+
+  <!-- Soundscape Guide & Audio Engine Info Modal -->
+  <div class="soundscape-modal-backdrop hidden" id="soundscapeModalBackdrop" aria-hidden="true">
+    <div class="soundscape-modal" id="soundscapeModal" role="dialog" aria-modal="true" aria-labelledby="soundscapeModalTitle">
+      <div class="soundscape-modal-header">
+        <div class="soundscape-modal-title-wrap">
+          <span class="soundscape-modal-badge">Canlı Algoritmik Sentezleyici</span>
+          <h2 class="soundscape-modal-title" id="soundscapeModalTitle">Derya’nın Ses Evreni</h2>
+        </div>
+        <button class="close-btn" id="btnCloseSoundscapeModal" aria-label="Kapat">✕</button>
+      </div>
+
+      <div class="soundscape-modal-body">
+        <div class="soundscape-guide-section intro-card">
+          <p class="soundscape-intro-lead">
+            Derya’da dinlediğiniz deniz ve dalga sesleri, önceden kaydedilmiş ve tekrarlanan sıradan bir ses dosyası (MP3/WAV döngüsü) <em>değildir</em>.
+          </p>
+          <p>
+            Buradaki her dalga kabarması, kıyıya dökülen su kütlesinin köpürmesi, çakıl taşlarının hışırtısı ve meditatif geri çekilme emişi; tarayıcınızın <strong>Web Audio API</strong> ses motoru tarafından <strong>her ziyaretinizde o an, canlı ve fiziksel matematiksel modellerle (üretken / procedural ses)</strong> baştan yaratılır.
+          </p>
+          <div class="soundscape-highlight-box">
+            🌊 <strong>Canlı ve Benzersiz:</strong> Tıpkı gerçek bir kıyıda olduğu gibi, hiçbir dalga bir diğerinin aynısı değildir. Dalgalar 3–4’lük organik setler halinde kabarır, zirve yapar ve ardından dingin bir okyanus sükûnetine kavuşur.
+          </div>
+        </div>
+
+        <!-- Audio Graph Architecture Diagram Section -->
+        <div class="soundscape-guide-section">
+          <h3 class="soundscape-section-title">📊 Web Audio Akış Şeması (Audio Graph)</h3>
+          <p class="soundscape-diagram-desc">
+            Sinyalin matematiksel gürültü üreteçlerinden başlayıp filtreler, stereo pannerlar ve tiz yumuşatıcılar üzerinden ana hoparlör çıkışına ulaşma mimarisi:
+          </p>
+
+          <div class="audio-graph-wrapper">
+            <div class="audio-graph-flow">
+              
+              <!-- Column 1: Sources -->
+              <div class="graph-col">
+                <div class="graph-col-header">1. Canlı Üreteçler</div>
+                
+                <div class="graph-node node-source" title="Algoritmik Kahverengi Gürültü">
+                  <span class="node-badge">Kaynak</span>
+                  <span class="node-title">Stereo Brown Noise</span>
+                  <span class="node-sub">Okyanus Gövdesi & Kabarma</span>
+                </div>
+
+                <div class="graph-node node-source" title="Geniş Spektrumlu Beyaz Gürültü">
+                  <span class="node-badge">Kaynak</span>
+                  <span class="node-title">White Noise Buffer</span>
+                  <span class="node-sub">Kırılma, Çarpma & Emiş</span>
+                </div>
+
+                <div class="graph-node node-source" title="Poisson Dağılımlı Mikro Patlamalar">
+                  <span class="node-badge">Kaynak</span>
+                  <span class="node-title">Granular Bubble Engine</span>
+                  <span class="node-sub">Köpük & Kum Hışırtısı</span>
+                </div>
+
+                <div class="graph-node node-source" title="Saf Kuvars Çanak Osilatörleri">
+                  <span class="node-badge">Kaynak</span>
+                  <span class="node-title">Quartz Oscillators</span>
+                  <span class="node-sub">432Hz • 540Hz • 648Hz</span>
+                </div>
+
+                <div class="graph-node node-source" title="Biyonoral & Alt Bas Üreteçleri">
+                  <span class="node-badge">Kaynak</span>
+                  <span class="node-title">Theta Sine & Sub Drone</span>
+                  <span class="node-sub">6Hz Beat & 55Hz Bas</span>
+                </div>
+              </div>
+
+              <div class="graph-arrow-col">➔</div>
+
+              <!-- Column 2: DSP & Physical Modeling -->
+              <div class="graph-col">
+                <div class="graph-col-header">2. DSP & Filtreleme</div>
+
+                <div class="graph-node node-dsp">
+                  <span class="node-badge dsp">Filtre</span>
+                  <span class="node-title">Breathing LFO + LPF</span>
+                  <span class="node-sub">1/12Hz Salınım • 560Hz</span>
+                </div>
+
+                <div class="graph-node node-dsp">
+                  <span class="node-badge dsp">Filtre</span>
+                  <span class="node-title">Dynamic Swell Filter</span>
+                  <span class="node-sub">160Hz ➔ 2400Hz Süpürme</span>
+                </div>
+
+                <div class="graph-node node-dsp">
+                  <span class="node-badge dsp">Kaskad</span>
+                  <span class="node-title">Shore Break Cascade</span>
+                  <span class="node-sub">380Hz HPF + 4800Hz LPF</span>
+                </div>
+
+                <div class="graph-node node-dsp">
+                  <span class="node-badge dsp">Filtre</span>
+                  <span class="node-title">Granular Foam BPF</span>
+                  <span class="node-sub">2200Hz HPF + 4600Hz BPF</span>
+                </div>
+
+                <div class="graph-node node-dsp">
+                  <span class="node-badge dsp">Rezonatör</span>
+                  <span class="node-title">Barrel Tube & Thud</span>
+                  <span class="node-sub">420Hz Formant • 130Hz Thud</span>
+                </div>
+
+                <div class="graph-node node-dsp">
+                  <span class="node-badge dsp">Süpürme</span>
+                  <span class="node-title">Undertow Gravity Drag</span>
+                  <span class="node-sub">1950Hz ➔ 580Hz (5.2s Emiş)</span>
+                </div>
+              </div>
+
+              <div class="graph-arrow-col">➔</div>
+
+              <!-- Column 3: Spatial & Sub-Buses -->
+              <div class="graph-col">
+                <div class="graph-col-header">3. Yönlendirme & Tiz Filtresi</div>
+
+                <div class="graph-node node-bus">
+                  <span class="node-badge bus">Bara</span>
+                  <span class="node-title">wavesMasterGain</span>
+                  <span class="node-sub">Arka Plan & Kabarma</span>
+                </div>
+
+                <div class="graph-node node-special">
+                  <span class="node-badge special">🕊️ Tiz Tıraşlama</span>
+                  <span class="node-title">crashFoamTrebleFilter</span>
+                  <span class="node-sub">Kırılma + Köpük Yumuşatma</span>
+                </div>
+
+                <div class="graph-node node-panner">
+                  <span class="node-badge panner">Uzamsal</span>
+                  <span class="node-title">Rolling Peel Stereo</span>
+                  <span class="node-sub">Sol ↔ Sağ Dalga Hareketi</span>
+                </div>
+
+                <div class="graph-node node-bus">
+                  <span class="node-badge bus">Bara</span>
+                  <span class="node-title">undertowMasterGain</span>
+                  <span class="node-sub">Kıyıdan Merkeze Çekilme</span>
+                </div>
+
+                <div class="graph-node node-bus">
+                  <span class="node-badge bus">Bara</span>
+                  <span class="node-title">bowlMaster & Theta Buses</span>
+                  <span class="node-sub">Kristal Çanak & Biyonoral</span>
+                </div>
+              </div>
+
+              <div class="graph-arrow-col">➔</div>
+
+              <!-- Column 4: Master Stage -->
+              <div class="graph-col">
+                <div class="graph-col-header">4. Ana Çıkış</div>
+
+                <div class="graph-node node-master">
+                  <span class="node-badge master">Ana Kazanç</span>
+                  <span class="node-title">oceanMasterGain</span>
+                  <span class="node-sub">Genel Ses Seviyesi (volMaster)</span>
+                </div>
+
+                <div class="graph-node node-dest">
+                  <span class="node-badge dest">Hedef</span>
+                  <span class="node-title">audioCtx.destination</span>
+                  <span class="node-sub">🔊 Hoparlör / Kulaklık Çıkışı</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="soundscape-guide-section">
+          <h3 class="soundscape-section-title">🎛️ Ses Katmanları ve Ayarların İşlevleri</h3>
+
+          <div class="soundscape-control-grid">
+            <div class="soundscape-control-card">
+              <div class="control-card-header">
+                <span class="control-name">🌊 Dalgalar (Gövde)</span>
+                <span class="control-role">Arka Plan Okyanus Örtüsü</span>
+              </div>
+              <p>Uzak ufuktan gelen kesintisiz, ılık deniz gövdesini ve 12 saniyelik doğal nefes alış-veriş salınımını kontrol eder. Ön plandaki dalga kırılmalarını yumuşakça sarar.</p>
+            </div>
+
+            <div class="soundscape-control-card">
+              <div class="control-card-header">
+                <span class="control-name">💥 Kırılma</span>
+                <span class="control-role">Kıyıya Vuruş Enerjisi</span>
+              </div>
+              <p>Dalga tepesinin kıyıya döküldüğü an ortaya çıkan geniş spektrumlu akustik çarpma gücüdür. Dalganın sağdan sola veya soldan sağa dökülüş yönünü (stereo peel) yansıtır.</p>
+            </div>
+
+            <div class="soundscape-control-card">
+              <div class="control-card-header">
+                <span class="control-name">🫧 Köpük & Kum Hışırtısı</span>
+                <span class="control-role">Mikro Kabarcıklar & Çakıl</span>
+              </div>
+              <p>Kırılan suyun kum ve çakıllar üzerinde bıraktığı milyonlarca minik kabarcığın patlama seslerini (Poisson dağılımlı granüler sentez) yönetir.</p>
+            </div>
+
+            <div class="soundscape-control-card">
+              <div class="control-card-header">
+                <span class="control-name">🕊️ Tiz Tıraşlama (Yumuşatma)</span>
+                <span class="control-role">İpeksi Akustik Filtre</span>
+              </div>
+              <p>Köpük ve kırılma seslerinin yüksek frekanslı sertliğini filtreler. Düşük tutulduğunda dalgalar kulak yormayan, kadifemsi ve dinlendirici bir yumuşaklığa bürünür.</p>
+            </div>
+
+            <div class="soundscape-control-card">
+              <div class="control-card-header">
+                <span class="control-name">🌀 Dalga Tüpü (Formant Rezonansı)</span>
+                <span class="control-role">Hava Boşluğu Akustiği</span>
+              </div>
+              <p>Dalga kırılmadan önce suyun bükülüp içinde hapsettiği hava odacığının yarattığı 420 Hz'lik derin, kavisli rezonans gövdesidir.</p>
+            </div>
+
+            <div class="soundscape-control-card">
+              <div class="control-card-header">
+                <span class="control-name">🌊 Kabarma Tavanı</span>
+                <span class="control-role">Frekans Spektrumu Eşiği</span>
+              </div>
+              <p>Yükselen dalganın ulaştığı en yüksek frekans parlaklığını belirler. Koyu, ağırbaşlı bir deniz ile berrak ve kristal dalga tepeleri arasındaki dengeyi ayarlar.</p>
+            </div>
+
+            <div class="soundscape-control-card">
+              <div class="control-card-header">
+                <span class="control-name">💨 Geri Çekilme Emişi</span>
+                <span class="control-role">5 Saniyelik Meditatif Sürükleniş</span>
+              </div>
+              <p>Kıyıya yayılan suyun yerçekimiyle kumsaldan geriye, denizin derinliklerine süzülürken çıkardığı frekansı alçalan (1950Hz → 580Hz) içe çekilme hissi.</p>
+            </div>
+
+            <div class="soundscape-control-card">
+              <div class="control-card-header">
+                <span class="control-name">⏱️ Dalga Sıklığı</span>
+                <span class="control-role">Akış Temposu & Dinlenme</span>
+              </div>
+              <p>Dalgaların geliş periyodunu ve setler arasındaki sakinlik molalarını ayarlar.</p>
+            </div>
+
+            <div class="soundscape-control-card">
+              <div class="control-card-header">
+                <span class="control-name">🥣 Kristal Çanaklar (432Hz, 540Hz, 648Hz)</span>
+                <span class="control-role">Kutsal Geometri & Armoni</span>
+              </div>
+              <p>Saf kuvars kaselerin saf akortlu (Just Intonation) kutsal oranlarıyla mekanı ve zihni dolduran derin ses titreşimleri.</p>
+            </div>
+
+            <div class="soundscape-control-card">
+              <div class="control-card-header">
+                <span class="control-name">🧠 Biyonoral Beat (6Hz Theta)</span>
+                <span class="control-role">Derin Zihin & Meditasyon</span>
+              </div>
+              <p>Kulaklıkla dinlendiğinde sağ ve sol kanallar arasındaki 6 Hz'lik faz farkıyla zihni meditatif Theta dalgası frekansına davet eder.</p>
+            </div>
+
+            <div class="soundscape-control-card">
+              <div class="control-card-header">
+                <span class="control-name">🎵 Alt Bas (Sub-Bass)</span>
+                <span class="control-role">Topraklayıcı Akustik Temel</span>
+              </div>
+              <p>Derin denizlerin dip akıntısını hissettiren, mekana ağırlık ve dinginlik katan alt frekans temelidir.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="soundscape-guide-section persistence-card">
+          <h3 class="soundscape-section-title">💾 Kalıcı Kişiselleştirme</h3>
+          <p>
+            Ayarlar çekmecesinden yaptığınız tüm ses ve görsel ince ayarlar tarayıcınızın yerel hafızasına (LocalStorage) kaydedilir. Derya’ya tekrar geldiğinizde tam olarak kendi tasarladığınız akustik ve görsel atmosfer sizi karşılar.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js?v=1787325881898"></script>
+</body>
+</html>
