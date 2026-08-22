@@ -67,14 +67,20 @@ html, body {
 /* Background Atmosphere Layers */
 .ebru-background-layer {
   position: fixed;
-  inset: 0;
+  top: -24px;
+  left: -24px;
+  right: -24px;
+  bottom: -24px;
+  width: calc(100vw + 48px);
+  height: calc(100vh + 48px);
   z-index: 0;
+  background-color: var(--color-ebru-navy-deep);
   background-image: radial-gradient(circle at 50% 50%, rgba(10, 24, 38, 0.4) 0%, rgba(6, 12, 18, 0.85) 100%), url('assets/ebru-bg.jpg');
   background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
   filter: brightness(0.92) contrast(1.05);
-  transform: scale(1.02);
+  pointer-events: none;
 }
 
 /* ==========================================================================
@@ -389,11 +395,13 @@ html, body {
 }
 
 .lock-subtitle {
-  font-family: var(--font-script);
-  font-size: 2.3rem;
-  color: var(--color-gold-dark);
-  margin-bottom: 0.8rem;
-  line-height: 1.1;
+  font-family: var(--font-serif-body);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: #ebdcb2;
+  margin-bottom: 1.2rem;
+  line-height: 1.45;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 .lock-prompt {
@@ -534,11 +542,13 @@ html, body {
 
 .header-subtitle {
   display: block;
-  font-family: var(--font-script);
-  font-size: 1.15rem;
-  color: rgba(245, 238, 219, 0.85);
-  line-height: 1;
-  margin-top: -1px;
+  font-family: var(--font-serif-body);
+  font-style: italic;
+  font-size: 0.94rem;
+  color: rgba(245, 238, 219, 0.9);
+  line-height: 1.3;
+  margin-top: 2px;
+  letter-spacing: 0.02em;
 }
 
 /* Icon Buttons */
@@ -1764,13 +1774,14 @@ html, body {
 }
 
 .library-subtitle {
-  font-family: var(--font-classical-header);
-  font-size: 0.92rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #dfd2b8;
-  margin-top: 0.4rem;
+  font-family: var(--font-serif-body);
+  font-style: italic;
+  font-size: 1.18rem;
+  color: #ebdcb2;
+  margin-top: 0.5rem;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.85);
+  line-height: 1.4;
+  letter-spacing: 0.01em;
 }
 
 .books-grid {
@@ -2096,7 +2107,7 @@ body.mode-scroll .booklet-controls {
   }
 
   .header-subtitle {
-    font-size: 1rem;
+    font-size: 0.82rem;
   }
 
   .btn-label {
@@ -2166,7 +2177,7 @@ body.mode-scroll .booklet-controls {
   }
 
   .lock-subtitle {
-    font-size: 1.9rem;
+    font-size: 1.05rem;
   }
 
   .lock-prompt {
