@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;500;600;700&family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=1787406462572">
+  <link rel="stylesheet" href="styles.css?v=1787406863870">
 </head>
 <body class="mode-booklet">
 
@@ -751,7 +751,13 @@
           <span class="soundscape-modal-badge">Tasarım Dili & Sanat Felsefesi</span>
           <h2 class="soundscape-modal-title" id="designModalTitle">Derya’nın Estetik ve Deneyim Dünyası</h2>
         </div>
-        <button class="close-btn" id="btnCloseDesignModal" aria-label="Kapat">✕</button>
+        <div class="modal-header-actions">
+          <label class="modal-checkbox-label" title="Giriş sonrası bu pencereyi otomatik açma">
+            <input type="checkbox" id="chkDontShowDesignGuide" class="custom-modal-checkbox">
+            <span>Bir daha gösterme</span>
+          </label>
+          <button class="close-btn" id="btnCloseDesignModal" aria-label="Kapat">✕</button>
+        </div>
       </div>
 
       <div class="soundscape-modal-body">
@@ -875,10 +881,25 @@
             Derya’da her sayfa çevrilişinde sadece kelimeler okunmaz; Akdeniz kıyılarının yumuşak dalga sesleri, 432 Hz kristal kaselerin arındırıcı titreşimi, ebru desenlerinin süzülüşü ve altın hüzmelerin dansıyla birlikte ziyaretçi kendisini deniz kenarında, rıhtımda, sadece kendisine adanmış özel bir şiir mabedinde hisseder.
           </p>
         </div>
+
+        <!-- Section 5: Link to Audio Engine Guide -->
+        <div class="guide-crosslink-card">
+          <div class="crosslink-content">
+            <span class="crosslink-badge">Ayrıntılı Ses Kılavuzu</span>
+            <h4 class="crosslink-title">🌊 Derya’nın Canlı Ses Evrenini Keşfedin</h4>
+            <p class="crosslink-desc">Akdeniz dalga fiziği, Web Audio akış şeması (audio graph), 432 Hz çanaklar ve tüm canlı akustik parametrelerin detaylı teknik rehberine göz atın.</p>
+          </div>
+          <button class="btn-crosslink" id="btnOpenAudioFromDesign">
+            <span>Ses Kılavuzunu Aç</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   </div>
 
-  <script src="app.js?v=1787406462572"></script>
+  <script src="app.js?v=1787406863870"></script>
 </body>
 </html>
