@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;500;600;700&family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=1787406195259">
+  <link rel="stylesheet" href="styles.css?v=1787406462572">
 </head>
 <body class="mode-booklet">
 
@@ -489,10 +489,10 @@
             Derya’da dinlediğiniz deniz ve dalga sesleri, önceden kaydedilmiş ve tekrarlanan sıradan bir ses dosyası (MP3/WAV döngüsü) <em>değildir</em>.
           </p>
           <p>
-            Buradaki her dalga kabarması, kıyıya dökülen su kütlesinin köpürmesi, çakıl taşlarının hışırtısı ve meditatif geri çekilme emişi; tarayıcınızın <strong>Web Audio API</strong> ses motoru tarafından <strong>her ziyaretinizde o an, canlı ve fiziksel matematiksel modellerle (üretken / procedural ses)</strong> baştan yaratılır.
+            Buradaki her dalga kabarması, kıyıya dökülen su kütlesinin köpürmesi, çakıl taşlarının hışırtısı ve meditatif geri çekilme emişi; <strong>Akdeniz ve Ege kıyılarında çakıllara vuran gerçek dalga dinamiklerinin akustik fiziği referans alınarak</strong> matematiksel modellerle kurgulanmıştır. Tarayıcınızın <strong>Web Audio API</strong> motoru tarafından <strong>her ziyaretinizde o an, canlı ve üretken (procedural)</strong> olarak baştan yaratılır.
           </p>
           <div class="soundscape-highlight-box">
-            🌊 <strong>Canlı ve Benzersiz:</strong> Tıpkı gerçek bir kıyıda olduğu gibi, hiçbir dalga bir diğerinin aynısı değildir. Dalgalar 3–4’lük organik setler halinde kabarır, zirve yapar ve ardından dingin bir okyanus sükûnetine kavuşur.
+            🌊 <strong>Akdeniz Kıyılarının Canlı Akustiği:</strong> Türk sahillerinin dinlendirici kıyı ritmini yakalamak üzere modellenen dalgalar; 3–4’lük organik setler halinde kabarır, kırılır ve ardından derin bir sükûnetle geri çekilir. Hiçbir dalga bir diğerinin aynısı değildir.
           </div>
         </div>
 
@@ -560,83 +560,77 @@
                 </div>
 
                 <div class="graph-node node-dsp">
-                  <span class="node-badge dsp">Kaskad</span>
-                  <span class="node-title">Shore Break Cascade</span>
-                  <span class="node-sub">380Hz HPF + 4800Hz LPF</span>
+                  <span class="node-badge dsp">Filtre</span>
+                  <span class="node-title">Bandpass Tube Filter</span>
+                  <span class="node-sub">420Hz Rezonans (Q=1.8)</span>
                 </div>
 
                 <div class="graph-node node-dsp">
                   <span class="node-badge dsp">Filtre</span>
-                  <span class="node-title">Granular Foam BPF</span>
-                  <span class="node-sub">2200Hz HPF + 4600Hz BPF</span>
+                  <span class="node-title">Foam Granular Filter</span>
+                  <span class="node-sub">1800Hz ➔ 4500Hz Band</span>
                 </div>
 
                 <div class="graph-node node-dsp">
-                  <span class="node-badge dsp">Rezonatör</span>
-                  <span class="node-title">Barrel Tube & Thud</span>
-                  <span class="node-sub">420Hz Formant • 130Hz Thud</span>
-                </div>
-
-                <div class="graph-node node-dsp">
-                  <span class="node-badge dsp">Süpürme</span>
-                  <span class="node-title">Undertow Gravity Drag</span>
-                  <span class="node-sub">1950Hz ➔ 580Hz (5.2s Emiş)</span>
+                  <span class="node-badge dsp">Filtre</span>
+                  <span class="node-title">Treble Damp (Softening)</span>
+                  <span class="node-sub">İpeksi Kıyı Tıraşlama</span>
                 </div>
               </div>
 
               <div class="graph-arrow-col">➔</div>
 
-              <!-- Column 3: Spatial & Sub-Buses -->
+              <!-- Column 3: Spatial & Dynamic Control -->
               <div class="graph-col">
-                <div class="graph-col-header">3. Yönlendirme & Tiz Filtresi</div>
+                <div class="graph-col-header">3. Uzamsal & Mikser</div>
+
+                <div class="graph-node node-panner">
+                  <span class="node-badge panner">Pan</span>
+                  <span class="node-title">Stereo Peel Panner</span>
+                  <span class="node-sub">Kıyı Boyu Kırılma Göçü</span>
+                </div>
 
                 <div class="graph-node node-bus">
-                  <span class="node-badge bus">Bara</span>
-                  <span class="node-title">wavesMasterGain</span>
-                  <span class="node-sub">Arka Plan & Kabarma</span>
+                  <span class="node-badge bus">Veriyolu</span>
+                  <span class="node-title">Granular Foam Bus</span>
+                  <span class="node-sub">Dinamik Köpük Kazancı</span>
+                </div>
+
+                <div class="graph-node node-bus">
+                  <span class="node-badge bus">Veriyolu</span>
+                  <span class="node-title">Undertow Suction Bus</span>
+                  <span class="node-sub">5s Geri Çekilme Emişi</span>
                 </div>
 
                 <div class="graph-node node-special">
-                  <span class="node-badge special">🕊️ Tiz Tıraşlama</span>
-                  <span class="node-title">crashFoamTrebleFilter</span>
-                  <span class="node-sub">Kırılma + Köpük Yumuşatma</span>
+                  <span class="node-badge special">Armoni</span>
+                  <span class="node-title">Crystal Singing Bowls</span>
+                  <span class="node-sub">432Hz Kutsal Frekans</span>
                 </div>
 
-                <div class="graph-node node-panner">
-                  <span class="node-badge panner">Uzamsal</span>
-                  <span class="node-title">Rolling Peel Stereo</span>
-                  <span class="node-sub">Sol ↔ Sağ Dalga Hareketi</span>
-                </div>
-
-                <div class="graph-node node-bus">
-                  <span class="node-badge bus">Bara</span>
-                  <span class="node-title">undertowMasterGain</span>
-                  <span class="node-sub">Kıyıdan Merkeze Çekilme</span>
-                </div>
-
-                <div class="graph-node node-bus">
-                  <span class="node-badge bus">Bara</span>
-                  <span class="node-title">bowlMaster & Theta Buses</span>
-                  <span class="node-sub">Kristal Çanak & Biyonoral</span>
+                <div class="graph-node node-special">
+                  <span class="node-badge special">Zihin</span>
+                  <span class="node-title">Theta Binaural (6Hz)</span>
+                  <span class="node-sub">Meditatif Zihin Alanı</span>
                 </div>
               </div>
 
               <div class="graph-arrow-col">➔</div>
 
-              <!-- Column 4: Master Stage -->
+              <!-- Column 4: Master & Output -->
               <div class="graph-col">
                 <div class="graph-col-header">4. Ana Çıkış</div>
 
                 <div class="graph-node node-master">
-                  <span class="node-badge master">Ana Kazanç</span>
-                  <span class="node-title">oceanMasterGain</span>
-                  <span class="node-sub">Genel Ses Seviyesi (volMaster)</span>
+                  <span class="node-badge master">Master</span>
+                  <span class="node-title">Master Gain Node</span>
+                  <span class="node-sub">Ana Ses Düzeyi</span>
                 </div>
 
                 <div class="graph-node node-dest">
-                  <span class="node-badge dest">Hedef</span>
-                  <span class="node-title">audioCtx.destination</span>
-                  <span class="node-sub">🔊 Hoparlör / Kulaklık Çıkışı</span>
+                  <span class="node-badge dest">Çıkış</span>
+                  <span class="node-title">AudioDestination</span>
+                  <span class="node-sub">Hoparlör / Kulaklık</span>
                 </div>
               </div>
 
@@ -644,16 +638,17 @@
           </div>
         </div>
 
+        <!-- Section 2: Detailed Sound Elements -->
         <div class="soundscape-guide-section">
-          <h3 class="soundscape-section-title">🎛️ Ses Katmanları ve Ayarların İşlevleri</h3>
-
+          <h3 class="soundscape-section-title">🎛️ Ses Katmanları ve Akustik Rolleri</h3>
+          
           <div class="soundscape-control-grid">
             <div class="soundscape-control-card">
               <div class="control-card-header">
                 <span class="control-name">🌊 Dalgalar (Gövde)</span>
-                <span class="control-role">Arka Plan Okyanus Örtüsü</span>
+                <span class="control-role">Okyanusun Kalp Atışı</span>
               </div>
-              <p>Uzak ufuktan gelen kesintisiz, ılık deniz gövdesini ve 12 saniyelik doğal nefes alış-veriş salınımını kontrol eder. Ön plandaki dalga kırılmalarını yumuşakça sarar.</p>
+              <p>Derin deniz kütlesinin ritmik kabarmasını üretir. Algoritmik kahverengi gürültü üzerinden 1/12 Hz'lik soluk alma salınımıyla yükselip alçalır.</p>
             </div>
 
             <div class="soundscape-control-card">
@@ -762,46 +757,46 @@
       <div class="soundscape-modal-body">
         <div class="soundscape-guide-section intro-card">
           <p class="soundscape-intro-lead">
-            Bu eser, sıradan bir web sayfası değil; Derya için tasarlanmış, edebiyat, geleneksel ebru sanatı, kadim ciltçilik ve yaşayan üretken seslerin buluştuğu <strong>meditatif ve kutsal bir dijital sığınak</strong> olarak inşa edildi.
+            Bu eser, sıradan bir dijital sayfa değil; <strong>Akdeniz ve Türk kıyılarının şiirsel ruhunu</strong>, kadim Türk sanat ve estetik kültürünü, geleneksel ebru sanatını ve yaşayan akustik dalga fiziğini Derya için bir araya getiren <strong>ruhsal ve sarmalayıcı bir dijital sığınaktır</strong>.
           </p>
           <p>
-            Her görsel katman, doku, tipografik hiyerarşi ve ışık oyunu; ziyaretçiyi dijital dünyanın gürültüsünden koparıp sakin, zamansız ve derin bir şiirsel deneyime davet etmek amacıyla titizlikle kurgulandı.
+            Her görsel katman, doku, tipografik hiyerarşi ve ses titreşimi; okuyucuyu gündelik dünyanın karmaşasından koparıp deniz kenarındaki bir rıhtımın huzuruna taşımak ve şiirleri <strong>ruha doğrudan dokunan derin bir tefekkürle</strong> hissettirmek amacıyla kurgulanmıştır.
           </p>
         </div>
 
-        <!-- Section 1: Design Inspiration & Atmosphere -->
+        <!-- Section 1: Mediterranean Shore & Turkish Aesthetic Culture -->
         <div class="soundscape-guide-section">
-          <h3 class="soundscape-section-title">🏛️ İlham Kaynakları ve Atmosfer</h3>
+          <h3 class="soundscape-section-title">🇹🇷 Akdeniz Kıyıları ve Türk Sanat Mirası</h3>
           <div class="design-feature-grid">
             <div class="design-feature-card">
-              <div class="feature-icon">📚</div>
+              <div class="feature-icon">🌊</div>
               <div class="feature-content">
-                <h4 class="feature-title">Kadim Ciltçilik & Antik Morocco Derisi</h4>
-                <p>Kitaplık ve cilt kapakları, eski çağların deri ciltli kıymetli yazmalarının omurga formundan ilham alır. Silindirik ışık gradyanları ve mikro dokular, elde tutulan ağırbaşlı ve zamansız bir esere dokunma hissi uyandırır.</p>
+                <h4 class="feature-title">Akdeniz Kıyılarından Modellenen Dalga Fiziği</h4>
+                <p>Sitedeki ses motoru, Akdeniz ve Türk sahillerinde çakıllara vuran gerçek dalga kayıtlarının frekans spektrumları incelenerek modellenmiştir. Suyun kabarması, kıyıya köpükler saçarak dökülmesi ve kumsalın derinliklerine 5 saniyelik meditatif geri çekilişi; Türk kıyılarının eşsiz dinginliğini yaşatır.</p>
               </div>
             </div>
 
             <div class="design-feature-card">
-              <div class="feature-icon">🌊</div>
+              <div class="feature-icon">🎨</div>
               <div class="feature-content">
-                <h4 class="feature-title">Geleneksel Ebru & Kozmik Okyanus</h4>
-                <p>Arka plandaki ebru deseni; suyun yüzeyinde dans eden boyaların oluşturduğu meditatif akış ile gökyüzünün sonsuz derinliğini bir araya getirerek “Rıhtım ve Kozmik Deniz” metaforunu görselleştirir.</p>
+                <h4 class="feature-title">Geleneksel Ebru Sanatı & Kozmik Deniz</h4>
+                <p>Arka plandaki ebru deseni; suyun yüzeyinde boyaların ve kitrenin dansıyla şekillenen Türk ebru sanatının mistik akışını yansıtır. “Rıhtım ve Kozmik Deniz” metaforu, ebrunun dalgalanan sonsuz derinliğinde hayat bulur.</p>
+              </div>
+            </div>
+
+            <div class="design-feature-card">
+              <div class="feature-icon">📚</div>
+              <div class="feature-content">
+                <h4 class="feature-title">Kadim Ciltçilik & Antik Morocco Derisi</h4>
+                <p>Kitaplık ve cilt kapakları; yüzyıllar boyunca kütüphaneleri süsleyen el yapımı Osmanlı ve Doğu cilt sanatının (sahtiyan / maroken) zarafetini taşır. Bordo deri dokusu ve silindirik omurga formu, okuyucuya asırlık bir eseri elinde tutma hissi verir.</p>
               </div>
             </div>
 
             <div class="design-feature-card">
               <div class="feature-icon">📜</div>
               <div class="feature-content">
-                <h4 class="feature-title">Sıcak Doğal Parşömen</h4>
-                <p>Şiir sayfalarında kullanılan doğal parşömen dokusu; gözü dinlendiren sıcak tonları ve lifli yüzeyiyle sözlerin samimiyetini, mahremiyetini ve zarafetini taşır.</p>
-              </div>
-            </div>
-
-            <div class="design-feature-card">
-              <div class="feature-icon">✨</div>
-              <div class="feature-content">
-                <h4 class="feature-title">Işık Hüzmeleri & Kozmik Tozlar</h4>
-                <p>Optik lens flare, hacimsel güneş ışınları (god rays) ve HTML5 canvas ile canlanan biyolüminesans yıldız parçacıkları; deniz üzerindeki anlık ışık oyunlarını sürekli canlı tutar.</p>
+                <h4 class="feature-title">Sıcak Doğal Parşömen & Varak Tezhip</h4>
+                <p>Şiir sayfalarında kullanılan doğal parşömen dokusu ve varak altın (tezhip) çerçeveler; dizelerin samimiyetini, zarafetini ve Türk el yazması geleneğinin sıcaklığını her mısrada hissettirir.</p>
               </div>
             </div>
           </div>
@@ -816,7 +811,7 @@
               <div class="palette-info">
                 <span class="palette-name">Varak Altın (Gilded Gold)</span>
                 <span class="palette-hex">#E5C158 • #FFD778</span>
-                <p class="palette-desc">Aşkın ebedi ışığı, el yazması tezhip sanatı ve rıhtımın üzerinden doğan sabah güneşinin sıcaklığı.</p>
+                <p class="palette-desc">Aşkın ebedi ışığı, geleneksel tezhip sanatı ve rıhtımın üzerinden yükselen Akdeniz güneşinin parıltısı.</p>
               </div>
             </div>
 
@@ -825,7 +820,7 @@
               <div class="palette-info">
                 <span class="palette-name">Antik Bordo Cilt (Burgundy Morocco)</span>
                 <span class="palette-hex">#190C13 • #2C1220</span>
-                <p class="palette-desc">Hatıraların, derin duyguların ve kütüphanelerde saklanan kıymetli ciltlerin vakur asaleti.</p>
+                <p class="palette-desc">Geçmişin içinden süzülen hatıraların, derin sevginin ve kıymetli şiir ciltlerinin vakur asaleti.</p>
               </div>
             </div>
 
@@ -834,7 +829,7 @@
               <div class="palette-info">
                 <span class="palette-name">Ebru Gece Mavisi (Ebru Navy)</span>
                 <span class="palette-hex">#0A1118 • #101C2A</span>
-                <p class="palette-desc">Okyanusun dipsiz sükûneti, gece göğü ve içsel tefekküre davet eden koruyucu derinlik.</p>
+                <p class="palette-desc">Türk denizlerinin ve Akdeniz gecelerinin dingin, güven veren ve içsel tefekküre çağıran koruyucu derinliği.</p>
               </div>
             </div>
 
@@ -843,7 +838,7 @@
               <div class="palette-info">
                 <span class="palette-name">Sıcak Parşömen (Warm Parchment)</span>
                 <span class="palette-hex">#FBF7EE • #F5EEDB</span>
-                <p class="palette-desc">Düşüncelerin kâğıda döküldüğü saf zemin; huzurlu, yumuşak ve göz yormayan doğal okunabilirlik.</p>
+                <p class="palette-desc">Duyguların mısralara döküldüğü doğal zemin; gözü yormayan, huzurlu ve samimi bir okuma ortamı.</p>
               </div>
             </div>
           </div>
@@ -861,7 +856,7 @@
 
             <div class="typo-card">
               <span class="typo-sample font-cinzel">RIHTIM VE KOZMİK DENİZ</span>
-              <span class="typo-meta">Cinzel & Cinzel Decorative • Roma Taş Baskı</span>
+              <span class="typo-meta">Cinzel & Cinzel Decorative • Anıtsal Klasik Başlık</span>
               <p>Zamanın aşındıramadığı anıtsal ve vakur bölüm başlıkları.</p>
             </div>
 
@@ -875,15 +870,15 @@
 
         <!-- Section 4: Holistic Immersive Experience -->
         <div class="soundscape-guide-section persistence-card">
-          <h3 class="soundscape-section-title">🌌 Bütünsel Deneyim: Görme, İşitme ve Ruh</h3>
+          <h3 class="soundscape-section-title">🌌 Ruha Dokunan Bütünsel Deneyim</h3>
           <p>
-            Derya’da her sayfa çevrilişinde sadece kelimeleri okumazsınız; arka plandaki canlı dalgaların ritmi, 432 Hz kristal kaselerin titreşimi ve altın hüzmelerin süzülüşüyle birlikte kendinizi deniz kenarında, sadece size ait bir kütüphanede hissedersiniz.
+            Derya’da her sayfa çevrilişinde sadece kelimeler okunmaz; Akdeniz kıyılarının yumuşak dalga sesleri, 432 Hz kristal kaselerin arındırıcı titreşimi, ebru desenlerinin süzülüşü ve altın hüzmelerin dansıyla birlikte ziyaretçi kendisini deniz kenarında, rıhtımda, sadece kendisine adanmış özel bir şiir mabedinde hisseder.
           </p>
         </div>
       </div>
     </div>
   </div>
 
-  <script src="app.js?v=1787406195259"></script>
+  <script src="app.js?v=1787406462572"></script>
 </body>
 </html>
