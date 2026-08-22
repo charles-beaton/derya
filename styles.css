@@ -1672,24 +1672,16 @@ html, body {
   background-color: #0b131e;
   background-image: 
     linear-gradient(90deg, 
-      rgba(3, 7, 12, 0.82) 0%, 
-      rgba(255, 255, 255, 0.03) 6%, 
-      rgba(255, 255, 255, 0.12) 18%, 
-      rgba(255, 255, 255, 0.02) 48%, 
-      rgba(0, 0, 0, 0.35) 82%, 
-      rgba(3, 7, 12, 0.88) 100%),
-    repeating-linear-gradient(0deg, 
-      transparent 0px, 
-      transparent 90px, 
-      rgba(0, 0, 0, 0.65) 91px, 
-      rgba(229, 193, 88, 0.18) 92px, 
-      rgba(255, 245, 200, 0.15) 93px, 
-      rgba(0, 0, 0, 0.75) 95px, 
-      transparent 96px),
-    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.04) 1px, transparent 1.5px),
-    radial-gradient(circle at 0% 100%, rgba(0, 0, 0, 0.5) 1px, transparent 2px),
-    radial-gradient(ellipse at 50% 30%, #152436 0%, #0c1522 65%, #060b11 100%);
-  background-size: 100% 100%, 100% 100%, 8px 8px, 6px 6px, 100% 100%;
+      rgba(3, 7, 12, 0.78) 0%, 
+      rgba(255, 255, 255, 0.035) 12%, 
+      rgba(255, 255, 255, 0.08) 22%, 
+      rgba(255, 255, 255, 0.02) 50%, 
+      rgba(0, 0, 0, 0.3) 80%, 
+      rgba(3, 7, 12, 0.82) 100%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.035) 1px, transparent 1.5px),
+    radial-gradient(circle at 0% 100%, rgba(0, 0, 0, 0.45) 1px, transparent 2px),
+    radial-gradient(ellipse at 50% 30%, #152538 0%, #0c1624 65%, #060b12 100%);
+  background-size: 100% 100%, 8px 8px, 6px 6px, 100% 100%;
   border-radius: 8px;
   padding: 2.6rem 2.2rem 2.2rem 2.2rem;
   box-shadow: 
@@ -1697,7 +1689,7 @@ html, body {
     inset 0 0 50px rgba(0, 0, 0, 0.8), 
     inset 0 1px 0 rgba(255, 255, 255, 0.12),
     0 0 25px rgba(229, 193, 88, 0.12);
-  border: 1.5px solid rgba(197, 160, 89, 0.65);
+  border: 1.5px solid rgba(197, 160, 89, 0.6);
   text-align: center;
 }
 
@@ -1769,47 +1761,20 @@ html, body {
   width: 100%;
 }
 
+/* Base Book Card Structure */
 .book-card {
   position: relative;
-  background-color: #0b131e;
-  background-image: 
-    linear-gradient(90deg, 
-      rgba(3, 7, 12, 0.82) 0%, 
-      rgba(255, 255, 255, 0.03) 6%, 
-      rgba(255, 255, 255, 0.11) 18%, 
-      rgba(255, 255, 255, 0.02) 48%, 
-      rgba(0, 0, 0, 0.35) 82%, 
-      rgba(3, 7, 12, 0.88) 100%),
-    repeating-linear-gradient(0deg, 
-      transparent 0px, 
-      transparent 90px, 
-      rgba(0, 0, 0, 0.65) 91px, 
-      rgba(229, 193, 88, 0.18) 92px, 
-      rgba(255, 245, 200, 0.15) 93px, 
-      rgba(0, 0, 0, 0.75) 95px, 
-      transparent 96px),
-    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.04) 1px, transparent 1.5px),
-    radial-gradient(circle at 0% 100%, rgba(0, 0, 0, 0.5) 1px, transparent 2px),
-    radial-gradient(ellipse at 50% 30%, #152436 0%, #0c1522 65%, #060b11 100%);
-  background-size: 100% 100%, 100% 100%, 8px 8px, 6px 6px, 100% 100%;
   border-radius: 8px;
   box-shadow: 
     0 25px 60px -10px rgba(0, 0, 0, 0.9), 
     inset 0 0 50px rgba(0, 0, 0, 0.8), 
-    inset 0 1px 0 rgba(255, 255, 255, 0.12),
-    0 0 20px rgba(229, 193, 88, 0.1);
-  border: 1.5px solid rgba(197, 160, 89, 0.6);
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
 }
 
 .book-card:hover {
   transform: translateY(-8px);
-  box-shadow: 
-    0 30px 70px -10px rgba(0, 0, 0, 0.95), 
-    inset 0 0 50px rgba(0, 0, 0, 0.7), 
-    0 0 35px rgba(229, 193, 88, 0.45);
-  border-color: var(--color-gold-bright);
 }
 
 .book-card-inner {
@@ -1825,7 +1790,7 @@ html, body {
 .book-card-border {
   position: absolute;
   inset: 12px;
-  border: 1px solid rgba(229, 193, 88, 0.35);
+  border: 1px solid rgba(229, 193, 88, 0.25);
   box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.5);
   pointer-events: none;
   border-radius: 4px;
@@ -1835,9 +1800,6 @@ html, body {
   position: absolute;
   top: 18px;
   right: 18px;
-  background: rgba(8, 16, 26, 0.92);
-  color: var(--color-gold-bright);
-  border: 1px solid var(--color-gold-base);
   font-family: var(--font-classical-header);
   font-size: 0.72rem;
   letter-spacing: 0.12em;
@@ -1845,6 +1807,7 @@ html, body {
   padding: 0.25rem 0.65rem;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  border: 1px solid transparent;
 }
 
 .book-card-number {
@@ -1852,7 +1815,6 @@ html, body {
   font-size: 0.82rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--color-gold-bright);
   margin-bottom: 0.5rem;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
@@ -1863,11 +1825,6 @@ html, body {
   font-weight: 700;
   margin-bottom: 0.6rem;
   line-height: 1.25;
-  background: linear-gradient(135deg, #ffd778 0%, #fff7d6 25%, #e5c158 52%, #c5a059 80%, #ffd060 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: var(--color-gold-bright);
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.9));
 }
 
@@ -1876,7 +1833,6 @@ html, body {
   font-size: 0.84rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #b0c2d4;
   margin: 0.8rem 0 1.2rem 0;
   max-width: 280px;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
@@ -1887,7 +1843,6 @@ html, body {
   font-style: italic;
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #e5dec9;
   margin-bottom: 2rem;
   flex-grow: 1;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
@@ -1897,9 +1852,6 @@ html, body {
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  background: linear-gradient(135deg, #16283d 0%, #244b5a 100%);
-  color: #fff;
-  border: 1px solid var(--color-gold-bright);
   padding: 0.75rem 1.8rem;
   border-radius: 25px;
   font-family: var(--font-classical-header);
@@ -1907,13 +1859,169 @@ html, body {
   letter-spacing: 0.15em;
   text-transform: uppercase;
   cursor: pointer;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), var(--shadow-gold-glow);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
   transition: all 0.3s ease;
 }
 
 .book-card:hover .btn-open-book {
   transform: scale(1.04);
-  background: linear-gradient(135deg, #1d3e52 0%, #306473 100%);
+}
+
+/* ==========================================================================
+   VOLUME 1 DISTINCT STYLE: YENİDEN (Warm Antique Burgundy / Garnet Leather)
+   ========================================================================== */
+#cardBookYeniden {
+  background-color: #190c13;
+  background-image: 
+    linear-gradient(90deg, 
+      rgba(10, 3, 7, 0.82) 0%, 
+      rgba(255, 215, 195, 0.04) 12%, 
+      rgba(255, 215, 195, 0.08) 22%, 
+      rgba(255, 255, 255, 0.02) 50%, 
+      rgba(15, 4, 10, 0.32) 80%, 
+      rgba(10, 3, 7, 0.85) 100%),
+    radial-gradient(circle at 50% 50%, rgba(255, 215, 195, 0.035) 1px, transparent 1.5px),
+    radial-gradient(circle at 0% 100%, rgba(0, 0, 0, 0.5) 1px, transparent 2px),
+    radial-gradient(ellipse at 50% 30%, #2c1220 0%, #180a12 65%, #0d050a 100%);
+  background-size: 100% 100%, 8px 8px, 6px 6px, 100% 100%;
+  border: 1.5px solid rgba(218, 155, 120, 0.55);
+}
+
+#cardBookYeniden:hover {
+  border-color: #f2bf8c;
+  box-shadow: 
+    0 30px 70px -10px rgba(0, 0, 0, 0.95), 
+    inset 0 0 50px rgba(0, 0, 0, 0.7), 
+    0 0 35px rgba(226, 160, 110, 0.4);
+}
+
+#cardBookYeniden .book-card-border {
+  border-color: rgba(218, 155, 120, 0.28);
+}
+
+#cardBookYeniden .corner-ornament {
+  border-color: #f0be88;
+  filter: drop-shadow(0 0 4px rgba(240, 190, 136, 0.4));
+}
+
+#cardBookYeniden .book-card-badge {
+  background: rgba(36, 14, 26, 0.94);
+  color: #f7d4b2;
+  border-color: rgba(218, 155, 120, 0.6);
+}
+
+#cardBookYeniden .book-card-number {
+  color: #f5cca6;
+}
+
+#cardBookYeniden .book-card-title {
+  background: linear-gradient(135deg, #ffe2c2 0%, #ffffff 25%, #f0be88 52%, #c98852 80%, #ffd4a8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #f0be88;
+}
+
+#cardBookYeniden .gold-divider-mini {
+  background: linear-gradient(90deg, transparent, #d49566, transparent);
+}
+
+#cardBookYeniden .book-card-tagline {
+  color: #d6b8c4;
+}
+
+#cardBookYeniden .book-card-quote {
+  color: #ece0d8;
+}
+
+#cardBookYeniden .btn-open-book {
+  background: linear-gradient(135deg, #2e1220 0%, #4c1d34 100%);
+  border: 1px solid #e2a878;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 14px rgba(226, 168, 120, 0.35);
+}
+
+#cardBookYeniden:hover .btn-open-book {
+  background: linear-gradient(135deg, #3d172a 0%, #632644 100%);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7), 0 0 22px rgba(226, 168, 120, 0.6);
+}
+
+/* ==========================================================================
+   VOLUME 2 DISTINCT STYLE: RIHTIM VE KOZMİK DENİZ (Cosmic Ocean Navy Leather)
+   ========================================================================== */
+#cardBookRihtim {
+  background-color: #08131e;
+  background-image: 
+    linear-gradient(90deg, 
+      rgba(2, 7, 12, 0.82) 0%, 
+      rgba(195, 235, 255, 0.04) 12%, 
+      rgba(195, 235, 255, 0.08) 22%, 
+      rgba(255, 255, 255, 0.02) 50%, 
+      rgba(2, 10, 18, 0.32) 80%, 
+      rgba(2, 7, 12, 0.85) 100%),
+    radial-gradient(circle at 50% 50%, rgba(195, 235, 255, 0.035) 1px, transparent 1.5px),
+    radial-gradient(circle at 0% 100%, rgba(0, 0, 0, 0.5) 1px, transparent 2px),
+    radial-gradient(ellipse at 50% 30%, #10263b 0%, #071522 65%, #030a10 100%);
+  background-size: 100% 100%, 8px 8px, 6px 6px, 100% 100%;
+  border: 1.5px solid rgba(197, 160, 89, 0.58);
+}
+
+#cardBookRihtim:hover {
+  border-color: var(--color-gold-bright);
+  box-shadow: 
+    0 30px 70px -10px rgba(0, 0, 0, 0.95), 
+    inset 0 0 50px rgba(0, 0, 0, 0.7), 
+    0 0 35px rgba(229, 193, 88, 0.45);
+}
+
+#cardBookRihtim .book-card-border {
+  border-color: rgba(197, 160, 89, 0.28);
+}
+
+#cardBookRihtim .corner-ornament {
+  border-color: var(--color-gold-bright);
+  filter: drop-shadow(0 0 4px rgba(229, 193, 88, 0.4));
+}
+
+#cardBookRihtim .book-card-badge {
+  background: rgba(8, 20, 34, 0.94);
+  color: var(--color-gold-bright);
+  border-color: var(--color-gold-base);
+}
+
+#cardBookRihtim .book-card-number {
+  color: var(--color-gold-bright);
+}
+
+#cardBookRihtim .book-card-title {
+  background: linear-gradient(135deg, #ffd778 0%, #ffffff 25%, #e5c158 52%, #c5a059 80%, #ffd060 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--color-gold-bright);
+}
+
+#cardBookRihtim .gold-divider-mini {
+  background: linear-gradient(90deg, transparent, var(--color-gold-base), transparent);
+}
+
+#cardBookRihtim .book-card-tagline {
+  color: #b2c8dc;
+}
+
+#cardBookRihtim .book-card-quote {
+  color: #e0e7ec;
+}
+
+#cardBookRihtim .btn-open-book {
+  background: linear-gradient(135deg, #0e2538 0%, #1a475c 100%);
+  border: 1px solid var(--color-gold-bright);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), var(--shadow-gold-glow);
+}
+
+#cardBookRihtim:hover .btn-open-book {
+  background: linear-gradient(135deg, #13334e 0%, #255d78 100%);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7), 0 0 22px rgba(229, 193, 88, 0.65);
 }
 
