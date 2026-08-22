@@ -2859,9 +2859,31 @@ body.mode-scroll .booklet-controls {
 }
 
 .exploration-card-icon {
-  font-size: 1.85rem;
-  line-height: 1;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(197, 160, 89, 0.12);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  color: var(--color-gold-bright);
+  transition: all 0.25s ease;
+}
+
+.exploration-card:hover .exploration-card-icon {
+  background: rgba(197, 160, 89, 0.25);
+  border-color: var(--color-gold-bright);
+  box-shadow: 0 0 12px rgba(229, 193, 88, 0.35);
+  transform: scale(1.05);
+}
+
+.exploration-card-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--color-gold-bright);
+  display: block;
 }
 
 .exploration-card-body {
@@ -3061,10 +3083,30 @@ body.mode-scroll .booklet-controls {
 }
 
 .feature-icon {
-  font-size: 1.75rem;
-  line-height: 1;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(197, 160, 89, 0.1);
+  border: 1px solid rgba(197, 160, 89, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
-  padding-top: 0.15rem;
+  color: var(--color-gold-bright);
+}
+
+.feature-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--color-gold-bright);
+  display: block;
+}
+
+.layer-icon-svg {
+  display: inline-block;
+  vertical-align: -2px;
+  margin-right: 0.35rem;
+  color: var(--color-gold-bright);
 }
 
 .feature-content {
