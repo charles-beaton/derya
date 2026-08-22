@@ -1157,8 +1157,9 @@ html, body {
   background-image: 
     radial-gradient(ellipse at 50% 30%, rgba(255, 255, 255, 0.45) 0%, rgba(235, 222, 195, 0.45) 100%),
     url('assets/parchment.jpg');
-  background-size: cover;
-  background-position: center;
+  background-size: cover, cover;
+  background-position: center center, center center;
+  background-repeat: no-repeat, no-repeat;
   border-radius: 6px;
   padding: 2.8rem 2.8rem 2.4rem 2.8rem;
   box-shadow: var(--shadow-book-spread), var(--shadow-parchment-inner);
