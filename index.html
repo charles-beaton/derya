@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;500;600;700&family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=1787405871818">
+  <link rel="stylesheet" href="styles.css?v=1787406195259">
 </head>
 <body class="mode-booklet">
 
@@ -384,6 +384,16 @@
             </div>
           </button>
 
+          <button class="settings-menu-item" id="btnDesignGuide" role="menuitem">
+            <div class="menu-item-left">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+              </svg>
+              <span class="menu-item-label">Tasarım & Deneyim</span>
+            </div>
+            <span class="menu-item-status">Estetik</span>
+          </button>
+
           <button class="settings-menu-item" id="btnAudioGuide" role="menuitem">
             <div class="menu-item-left">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
@@ -738,6 +748,142 @@
     </div>
   </div>
 
-  <script src="app.js?v=1787405871818"></script>
+  <!-- Design Language, Aesthetics & Immersive Experience Info Modal -->
+  <div class="soundscape-modal-backdrop hidden" id="designModalBackdrop" aria-hidden="true">
+    <div class="soundscape-modal design-modal" id="designModal" role="dialog" aria-modal="true" aria-labelledby="designModalTitle">
+      <div class="soundscape-modal-header">
+        <div class="soundscape-modal-title-wrap">
+          <span class="soundscape-modal-badge">Tasarım Dili & Sanat Felsefesi</span>
+          <h2 class="soundscape-modal-title" id="designModalTitle">Derya’nın Estetik ve Deneyim Dünyası</h2>
+        </div>
+        <button class="close-btn" id="btnCloseDesignModal" aria-label="Kapat">✕</button>
+      </div>
+
+      <div class="soundscape-modal-body">
+        <div class="soundscape-guide-section intro-card">
+          <p class="soundscape-intro-lead">
+            Bu eser, sıradan bir web sayfası değil; Derya için tasarlanmış, edebiyat, geleneksel ebru sanatı, kadim ciltçilik ve yaşayan üretken seslerin buluştuğu <strong>meditatif ve kutsal bir dijital sığınak</strong> olarak inşa edildi.
+          </p>
+          <p>
+            Her görsel katman, doku, tipografik hiyerarşi ve ışık oyunu; ziyaretçiyi dijital dünyanın gürültüsünden koparıp sakin, zamansız ve derin bir şiirsel deneyime davet etmek amacıyla titizlikle kurgulandı.
+          </p>
+        </div>
+
+        <!-- Section 1: Design Inspiration & Atmosphere -->
+        <div class="soundscape-guide-section">
+          <h3 class="soundscape-section-title">🏛️ İlham Kaynakları ve Atmosfer</h3>
+          <div class="design-feature-grid">
+            <div class="design-feature-card">
+              <div class="feature-icon">📚</div>
+              <div class="feature-content">
+                <h4 class="feature-title">Kadim Ciltçilik & Antik Morocco Derisi</h4>
+                <p>Kitaplık ve cilt kapakları, eski çağların deri ciltli kıymetli yazmalarının omurga formundan ilham alır. Silindirik ışık gradyanları ve mikro dokular, elde tutulan ağırbaşlı ve zamansız bir esere dokunma hissi uyandırır.</p>
+              </div>
+            </div>
+
+            <div class="design-feature-card">
+              <div class="feature-icon">🌊</div>
+              <div class="feature-content">
+                <h4 class="feature-title">Geleneksel Ebru & Kozmik Okyanus</h4>
+                <p>Arka plandaki ebru deseni; suyun yüzeyinde dans eden boyaların oluşturduğu meditatif akış ile gökyüzünün sonsuz derinliğini bir araya getirerek “Rıhtım ve Kozmik Deniz” metaforunu görselleştirir.</p>
+              </div>
+            </div>
+
+            <div class="design-feature-card">
+              <div class="feature-icon">📜</div>
+              <div class="feature-content">
+                <h4 class="feature-title">Sıcak Doğal Parşömen</h4>
+                <p>Şiir sayfalarında kullanılan doğal parşömen dokusu; gözü dinlendiren sıcak tonları ve lifli yüzeyiyle sözlerin samimiyetini, mahremiyetini ve zarafetini taşır.</p>
+              </div>
+            </div>
+
+            <div class="design-feature-card">
+              <div class="feature-icon">✨</div>
+              <div class="feature-content">
+                <h4 class="feature-title">Işık Hüzmeleri & Kozmik Tozlar</h4>
+                <p>Optik lens flare, hacimsel güneş ışınları (god rays) ve HTML5 canvas ile canlanan biyolüminesans yıldız parçacıkları; deniz üzerindeki anlık ışık oyunlarını sürekli canlı tutar.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Color Palette & Symbolism -->
+        <div class="soundscape-guide-section">
+          <h3 class="soundscape-section-title">🎨 Renk Paleti ve Sembolizm</h3>
+          <div class="palette-grid">
+            <div class="palette-card">
+              <div class="color-swatch swatch-gold"></div>
+              <div class="palette-info">
+                <span class="palette-name">Varak Altın (Gilded Gold)</span>
+                <span class="palette-hex">#E5C158 • #FFD778</span>
+                <p class="palette-desc">Aşkın ebedi ışığı, el yazması tezhip sanatı ve rıhtımın üzerinden doğan sabah güneşinin sıcaklığı.</p>
+              </div>
+            </div>
+
+            <div class="palette-card">
+              <div class="color-swatch swatch-burgundy"></div>
+              <div class="palette-info">
+                <span class="palette-name">Antik Bordo Cilt (Burgundy Morocco)</span>
+                <span class="palette-hex">#190C13 • #2C1220</span>
+                <p class="palette-desc">Hatıraların, derin duyguların ve kütüphanelerde saklanan kıymetli ciltlerin vakur asaleti.</p>
+              </div>
+            </div>
+
+            <div class="palette-card">
+              <div class="color-swatch swatch-navy"></div>
+              <div class="palette-info">
+                <span class="palette-name">Ebru Gece Mavisi (Ebru Navy)</span>
+                <span class="palette-hex">#0A1118 • #101C2A</span>
+                <p class="palette-desc">Okyanusun dipsiz sükûneti, gece göğü ve içsel tefekküre davet eden koruyucu derinlik.</p>
+              </div>
+            </div>
+
+            <div class="palette-card">
+              <div class="color-swatch swatch-parchment"></div>
+              <div class="palette-info">
+                <span class="palette-name">Sıcak Parşömen (Warm Parchment)</span>
+                <span class="palette-hex">#FBF7EE • #F5EEDB</span>
+                <p class="palette-desc">Düşüncelerin kâğıda döküldüğü saf zemin; huzurlu, yumuşak ve göz yormayan doğal okunabilirlik.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Typography Showcase -->
+        <div class="soundscape-guide-section">
+          <h3 class="soundscape-section-title">🖋️ Klasik Tipografi Hiyerarşisi</h3>
+          <div class="typography-grid">
+            <div class="typo-card">
+              <span class="typo-sample font-script">Derya için Şiirler</span>
+              <span class="typo-meta">Alex Brush • Kaligrafik Kişisel İthaf</span>
+              <p>Özel hissettiren, el yazısı sıcaklığındaki samimi ve lirik başlık dili.</p>
+            </div>
+
+            <div class="typo-card">
+              <span class="typo-sample font-cinzel">RIHTIM VE KOZMİK DENİZ</span>
+              <span class="typo-meta">Cinzel & Cinzel Decorative • Roma Taş Baskı</span>
+              <p>Zamanın aşındıramadığı anıtsal ve vakur bölüm başlıkları.</p>
+            </div>
+
+            <div class="typo-card">
+              <span class="typo-sample font-garamond">“Sen bir denizsin... ve ben bir rıhtım olmak istiyorum.”</span>
+              <span class="typo-meta">Cormorant Garamond • Rönesans Şiir Gövdesi</span>
+              <p>Akıcı, ritmik ve klasik şiir geleneğine sadık gövde metni.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Holistic Immersive Experience -->
+        <div class="soundscape-guide-section persistence-card">
+          <h3 class="soundscape-section-title">🌌 Bütünsel Deneyim: Görme, İşitme ve Ruh</h3>
+          <p>
+            Derya’da her sayfa çevrilişinde sadece kelimeleri okumazsınız; arka plandaki canlı dalgaların ritmi, 432 Hz kristal kaselerin titreşimi ve altın hüzmelerin süzülüşüyle birlikte kendinizi deniz kenarında, sadece size ait bir kütüphanede hissedersiniz.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js?v=1787406195259"></script>
 </body>
 </html>
