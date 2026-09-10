@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#1d354d"/>
+      <stop offset="60%" stop-color="#0e1b29"/>
+      <stop offset="100%" stop-color="#0a1118"/>
+    </radialGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff2c6"/>
+      <stop offset="25%" stop-color="#e5c158"/>
+      <stop offset="55%" stop-color="#aa8028"/>
+      <stop offset="85%" stop-color="#ffd973"/>
+      <stop offset="100%" stop-color="#7a5413"/>
+    </linearGradient>
+    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#e5c158" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <!-- Deep Cosmic Background -->
+  <rect width="512" height="512" rx="110" fill="url(#bgGrad)"/>
+
+  <!-- Ornate Outer Gold Ring -->
+  <rect x="24" y="24" width="464" height="464" rx="90" fill="none" stroke="url(#goldGrad)" stroke-width="4" opacity="0.85"/>
+  <rect x="36" y="36" width="440" height="440" rx="78" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.6"/>
+
+  <!-- Decorative Corner Accents -->
+  <circle cx="70" cy="70" r="5" fill="url(#goldGrad)"/>
+  <circle cx="442" cy="70" r="5" fill="url(#goldGrad)"/>
+  <circle cx="70" cy="442" r="5" fill="url(#goldGrad)"/>
+  <circle cx="442" cy="442" r="5" fill="url(#goldGrad)"/>
+
+  <!-- Central Emblem / Monogram "A" with Ornamental Waves -->
+  <g filter="url(#goldGlow)">
+    <!-- Classical Letterform "A" -->
+    <text x="256" y="325" 
+          font-family="'Playfair Display', 'Cinzel', 'Cinzel Decorative', Georgia, serif" 
+          font-size="240" 
+          font-weight="700"
+          font-style="italic"
+          text-anchor="middle" 
+          fill="url(#goldGrad)">A</text>
+    
+    <!-- Top Fleur-de-lis / Crown Flourish -->
+    <path d="M256 95 C250 115 235 125 220 120 C235 135 250 135 256 148 C262 135 277 135 292 120 C277 125 262 115 256 95 Z" fill="url(#goldGrad)"/>
+    
+    <!-- Wave Flourish Bottom -->
+    <path d="M170 380 Q213 365 256 380 T342 380" fill="none" stroke="url(#goldGrad)" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="256" cy="380" r="4" fill="url(#goldGrad)"/>
+  </g>
+</svg>

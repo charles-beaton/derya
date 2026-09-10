@@ -1,0 +1,25 @@
+{
+  "name": "Aramızda — Derya için Şiirler",
+  "short_name": "Aramızda",
+  "description": "İki kalp arasında büyüyen küçük bir dünya. Charles tarafından Derya için yazılmış özel şiir kitaplığı.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0a1118",
+  "theme_color": "#0a1118",
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
