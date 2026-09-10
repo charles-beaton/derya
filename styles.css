@@ -1111,7 +1111,7 @@ html, body {
   z-index: 10;
   min-height: 100vh;
   padding-top: calc(var(--header-height) + 1.8rem);
-  padding-bottom: calc(var(--controls-height) + 3rem);
+  padding-bottom: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1602,20 +1602,10 @@ html, body {
   vertical-align: 1px;
 }
 
-/* Page Footer */
-.page-footer {
-  text-align: center;
-  margin-top: 1.5rem;
-  position: relative;
-  z-index: 2;
-}
-
+/* Page Footer - Hidden to prevent duplication with navigation indicator pill */
+.page-footer,
 .page-number {
-  font-family: var(--font-classical-header);
-  font-size: 0.85rem;
-  letter-spacing: 0.25em;
-  color: var(--color-gold-base);
-  opacity: 0.85;
+  display: none !important;
 }
 
 /* ==========================================================================
@@ -1831,24 +1821,26 @@ html, body {
 }
 
 /* ==========================================================================
-   Floating Bottom Controls
+   Booklet Navigation Controls - Snapped Below Page
    ========================================================================== */
 .booklet-controls {
-  position: fixed;
-  bottom: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
+  margin: 1.6rem auto 3.5rem auto;
+  left: auto;
+  bottom: auto;
+  transform: none;
   z-index: 50;
   display: flex;
   align-items: center;
   gap: 1.25rem;
-  background: rgba(10, 18, 27, 0.85);
+  background: rgba(10, 18, 27, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   padding: 0.5rem 1.25rem;
   border-radius: 40px;
   border: 1px solid rgba(197, 160, 89, 0.35);
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), 0 0 15px rgba(197, 160, 89, 0.15);
+  width: fit-content;
 }
 
 .control-btn {
