@@ -64,6 +64,43 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ==========================================================================
+   Subdued Elegant Scrollbar System
+   ========================================================================== */
+html, * {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(197, 160, 89, 0.22) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(197, 160, 89, 0.22);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(229, 193, 88, 0.45);
+  border-color: rgba(229, 193, 88, 0.2);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: rgba(229, 193, 88, 0.7);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 /* Background Atmosphere Layers */
 .ebru-background-layer {
   position: fixed;
