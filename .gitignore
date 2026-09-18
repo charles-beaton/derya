@@ -10,6 +10,18 @@ encrypted_payload.json
 test_*.js
 tools/
 tools/**
+.env
+
+# Private Subprojects (Tracked in independent private repositories)
+diamond_selector/
+sponsorship_command_center/
+cloud_sync_worker/
+
+# Personal Diamond Media & Certificates
+*.mp4
+*.pdf
+*.mov
+IGI-*
 
 # Media & Temp Files
 *.m4a
@@ -17,4 +29,4 @@ tools/**
 *.wav
 .DS_Store
 Thumbs.db
-
+.pytest_cache/
