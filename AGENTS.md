@@ -91,6 +91,11 @@ graph TD
   4. **Evidentiary Limits**: 20 photos max; 10 pages communication max.
   5. **Cloudflare Sync**: Encrypted state synced to `https://derya-sync.charles-alex-beaton.workers.dev/api/state` using `DERYA_SYNC_KV`.
   6. **Luxury Lock Screen**: `#luxuryLockOverlay` on `index.html` decrypts state in memory.
+  7. **Cloudflare KV Sovereignty & Dev Push Isolation**:
+     - Production Cloudflare KV is the authoritative single source of truth for Derya & Charles's actual task statuses, notes, and progress.
+     - Local dev environments (`localhost`, `127.0.0.1`, port 8090) are strictly read-only for cloud sync. Pushes from dev are blocked client-side and edge-side (HTTP 403).
+     - NEVER overwrite server tasks with initial seed data. Use `node tools/pull_production_state.js --sync` to pull live state into local files.
+     - Cloudflare Worker maintains rolling snapshots (`derya_charles_backup_<timestamp>`) and timestamp conflict detection (`409 STALE_STATE_CONFLICT`).
 - **Cloudflare Pages Deployment**:
   ```powershell
   npx wrangler pages deploy sponsorship_command_center --project-name derya-command-center --branch main
