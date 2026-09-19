@@ -24,7 +24,7 @@ graph TD
     end
 
     subgraph PrivateSub2 [Independent Private Git: sponsorship_command_center/]
-        CommandCenter[3. Sponsorship Command Center<br/>6 Workstreams, 79 Tasks, 20 IRCC Requirements<br/>Private Repo + Cloudflare Pages]
+        CommandCenter[3. Sponsorship Command Center<br/>6 Workstreams, 106 Tasks, 20 IRCC Requirements<br/>Private Repo + Cloudflare Pages]
         SyncWorker[cloud_sync_worker/<br/>Cloudflare KV Zero-Knowledge Sync]
     end
 
