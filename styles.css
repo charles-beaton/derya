@@ -2019,6 +2019,274 @@ html, * {
   letter-spacing: 0.01em;
 }
 
+/* ==========================================================================
+   LIBRARY PORTALS GRID: DUAL PILLARS (POETRY BOOKS STACK & COMMAND CENTER)
+   ========================================================================== */
+.library-portals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2.5rem;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 3.5rem auto;
+  align-items: stretch;
+}
+
+.library-portal-card {
+  max-width: 100%;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 2.2rem 2.5rem 2.2rem;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.library-portal-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 30px 70px -10px rgba(0, 0, 0, 0.95), 
+    inset 0 0 50px rgba(0, 0, 0, 0.8), 
+    0 0 35px rgba(229, 193, 88, 0.25);
+}
+
+.library-portal-title {
+  font-family: var(--font-serif-title);
+  font-size: 2.35rem;
+  font-weight: 700;
+  margin: 0.25rem 0 0.2rem 0;
+  line-height: 1.2;
+  background: linear-gradient(135deg, #ffd778 0%, #fff7d6 24%, #e5c158 50%, #fbe8a6 68%, #c5a059 84%, #ffd060 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--color-gold-bright);
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 20px rgba(229, 193, 88, 0.55));
+  letter-spacing: 0.02em;
+}
+
+/* --- 3D Layered Book Stack within Poetry Card --- */
+.books-stack-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  margin: 1.6rem 0 1.2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stacked-books-pile {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.stacked-book-item {
+  position: relative;
+  width: 100%;
+  height: 56px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.25rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  user-select: none;
+}
+
+.stacked-book-item:hover {
+  transform: translateX(-10px) scale(1.02);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.9), 0 0 20px rgba(229, 193, 88, 0.45);
+}
+
+/* Volume 1: Yeniden (Deep Crimson & Burgundy Morocco Leather) */
+.stacked-book-item.stack-book-1 {
+  background: linear-gradient(90deg, #1b0c13 0%, #301322 50%, #1b0c13 100%);
+  border: 1px solid rgba(197, 160, 89, 0.55);
+}
+
+/* Volume 2: Rıhtım ve Kozmik Deniz (Deep Ebru Navy & Venetian Gold) */
+.stacked-book-item.stack-book-2 {
+  background: linear-gradient(90deg, #0a1420 0%, #14283e 50%, #0a1420 100%);
+  border: 1px solid rgba(229, 193, 88, 0.65);
+}
+
+/* Volume 3: Yuvanın Gücü (Warm Antique Parchment & Imperial Amber) */
+.stacked-book-item.stack-book-3 {
+  background: linear-gradient(90deg, #22170c 0%, #3a2714 50%, #22170c 100%);
+  border: 1px solid rgba(255, 217, 115, 0.75);
+}
+
+.stacked-book-spine {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  width: 100%;
+}
+
+.spine-numeral {
+  font-family: var(--font-classical-header);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-gold-bright);
+  min-width: 26px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.spine-title {
+  font-family: var(--font-serif-title);
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.4px;
+  flex: 1;
+  text-align: left;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.95);
+}
+
+.spine-badge {
+  font-family: var(--font-classical-header);
+  font-size: 0.68rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-gold-base);
+  background: rgba(0, 0, 0, 0.45);
+  padding: 0.2rem 0.55rem;
+  border-radius: 12px;
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  flex-shrink: 0;
+}
+
+.stacked-book-pages {
+  position: absolute;
+  right: -6px;
+  top: 4px;
+  bottom: 4px;
+  width: 6px;
+  background: repeating-linear-gradient(180deg, #f5f0e6 0px, #ebdcb2 2px, #d5c39b 4px);
+  border-radius: 0 2px 2px 0;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.6);
+}
+
+/* --- Command Center Portal Visual Elements --- */
+.portal-crest-mini svg {
+  display: block;
+}
+
+.command-portal-visual {
+  width: 100%;
+  max-width: 380px;
+  margin: 1.6rem 0 1.2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  align-items: center;
+}
+
+.command-stat-strip {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1.35fr 1fr;
+  gap: 0.6rem;
+}
+
+.cmd-stat-pill {
+  background: rgba(16, 28, 42, 0.75);
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  border-radius: 8px;
+  padding: 0.65rem 0.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.cmd-stat-pill.highlight-gold {
+  border-color: var(--color-gold-bright);
+  background: rgba(229, 193, 88, 0.08);
+  box-shadow: 0 0 12px rgba(229, 193, 88, 0.2), inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.cmd-stat-val {
+  font-family: var(--font-serif-title);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.cmd-stat-pill.highlight-gold .cmd-stat-val {
+  color: var(--color-gold-bright);
+}
+
+.cmd-stat-lbl {
+  font-family: var(--font-classical-header);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #ebdcb2;
+  opacity: 0.85;
+}
+
+.command-sync-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(16, 28, 42, 0.8);
+  border: 1px solid rgba(82, 196, 156, 0.35);
+  padding: 0.4rem 0.95rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  color: #52c49c;
+  letter-spacing: 0.5px;
+}
+
+.sync-dot-live {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #52c49c;
+  box-shadow: 0 0 8px #52c49c;
+  animation: pulse-sync 1.5s infinite alternate;
+}
+
+.portal-description {
+  font-family: var(--font-serif-body);
+  font-size: 1.05rem;
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+  margin: 0.4rem 0 1.6rem 0;
+  max-width: 400px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.portal-action-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-command-portal {
+  background: linear-gradient(135deg, #e5c158 0%, #c5a059 100%);
+  color: #0a1118 !important;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(229, 193, 88, 0.35);
+}
+
+.btn-command-portal:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(229, 193, 88, 0.55);
+}
+
 .books-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
