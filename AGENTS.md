@@ -85,7 +85,7 @@ graph TD
 - **Purpose**: Project-control system for Ontario relocation, marriage ceremony, Spousal PR Sponsorship (Inland SCLPC), Open Work Permit, and legal status continuity.
 - **Detailed Agent Guide**: Read [sponsorship_command_center/AGENTS.md](file:///c:/Users/charl/OneDrive/Documents/Derya/sponsorship_command_center/AGENTS.md) for full statutory rules.
 - **Key Invariants**:
-  1. **Ceremony Target**: Fixed strictly to **Friday, October 23, 2026**.
+  1. **Ceremony Target**: Fixed strictly to **Wednesday, October 21, 2026**.
   2. **No Upfront Medical**: Forbidden under IMM 5533; medical instructions (IMM 1017E) issued post-AOR.
   3. **Section 186(u) Maintained Status**: Eliminates routine flagpole / border re-entry.
   4. **Evidentiary Limits**: 20 photos max; 10 pages communication max.
