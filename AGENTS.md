@@ -82,7 +82,7 @@ graph TD
 
 ### 5. Project 3: Sponsorship Command Center (Private)
 
-- **Purpose**: Project-control system for Ontario relocation, marriage ceremony, Spousal PR Sponsorship (Inland SCLPC), Open Work Permit, and legal status continuity.
+- **Purpose**: Project-control system for Ontario relocation, marriage ceremony, Spousal PR Sponsorship (Outland Family Class), Open Work Permit, and legal status continuity.
 - **Detailed Agent Guide**: Read [sponsorship_command_center/AGENTS.md](file:///c:/Users/charl/OneDrive/Documents/Derya/sponsorship_command_center/AGENTS.md) for full statutory rules.
 - **Key Invariants**:
   1. **Ceremony Target**: Fixed strictly to **Wednesday, October 21, 2026**.
