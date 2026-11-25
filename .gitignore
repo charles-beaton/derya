@@ -15,6 +15,7 @@ tools/**
 # Private Subprojects (Tracked in independent private repositories)
 diamond_selector/
 sponsorship_command_center/
+realtor_command_center/
 cloud_sync_worker/
 
 # Personal Diamond Media & Certificates

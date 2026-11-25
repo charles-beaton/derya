@@ -33,25 +33,28 @@ graph TD
     Root --> CommandCenter
 ```
 
-#### The Three Projects
+#### The Five Projects
 
 | Project | Location | Git Repository | Deployment Target | Privacy Level |
 | :--- | :--- | :--- | :--- | :--- |
 | **1. Aramızda** | Root (`index.html`, `styles.css`, `app.js`) | `charles-beaton/derya` | **GitHub Pages** | **Public Repo** (Payload is AES-256 encrypted) |
 | **2. Diamond Selector** | `diamond_selector/` | Independent private git | Local Python / FastHTML | **Strictly Private** |
 | **3. Sponsorship Command Center** | `sponsorship_command_center/` | Independent private git | **Cloudflare Pages** (`derya-command-center.pages.dev`) | **Strictly Private** (AES-256 + Cloudflare Access) |
+| **4. Video Production Engine** | `video_production/` | Local / Private Pipeline | Google Drive / High-Res Master / Reels | **Private Pipeline** (Subpixel Celestial Engine) |
+| **5. Realtor Command Center** | `realtor_command_center/` | `charles-beaton/derya-realtor` (Independent private git) | Local Python / Spectre Server | **Strictly Private** (gemini-calculate Real Estate Governor) |
 
 ---
 
 ### 2. Mandatory Git & Privacy Directives for Agents
 
 1. **NEVER Commit Private Subprojects to the Public Repo**:
-   - `diamond_selector/`, `sponsorship_command_center/`, and `cloud_sync_worker/` are explicitly listed in the root `.gitignore`.
+   - `diamond_selector/`, `sponsorship_command_center/`, `realtor_command_center/`, and `cloud_sync_worker/` are explicitly listed in the root `.gitignore`.
    - Never run `git add -f` or remove these paths from `.gitignore`.
    - Never commit raw diamond certificates (`IGI-*`), `.mp4`, `.pdf`, or unencrypted schedule manifests to `charles-beaton/derya`.
 2. **Independent Commits**:
    - If modifying `diamond_selector/`, commit inside `c:\Users\charl\OneDrive\Documents\Derya\diamond_selector`.
    - If modifying `sponsorship_command_center/`, commit inside `c:\Users\charl\OneDrive\Documents\Derya\sponsorship_command_center`.
+   - If modifying `realtor_command_center/`, commit inside `c:\Users\charl\OneDrive\Documents\Derya\realtor_command_center`.
    - If modifying Aramızda, commit in the workspace root.
 
 ---
@@ -85,7 +88,7 @@ graph TD
 - **Purpose**: Project-control system for Ontario relocation, marriage ceremony, Spousal PR Sponsorship (Outland Family Class), Open Work Permit, and legal status continuity.
 - **Detailed Agent Guide**: Read [sponsorship_command_center/AGENTS.md](file:///c:/Users/charl/OneDrive/Documents/Derya/sponsorship_command_center/AGENTS.md) for full statutory rules.
 - **Key Invariants**:
-  1. **Ceremony Target**: Fixed strictly to **Wednesday, October 21, 2026**.
+  1. **Ceremony Target**: Fixed strictly to **Thursday, October 22, 2026 at 5:30 PM** (Plan A: TBD / Plan B: North York City Centre Chapel).
   2. **No Upfront Medical**: Forbidden under IMM 5533; medical instructions (IMM 1017E) issued post-AOR.
   3. **Section 186(u) Maintained Status**: Eliminates routine flagpole / border re-entry.
   4. **Evidentiary Limits**: 20 photos max; 10 pages communication max.
@@ -103,7 +106,21 @@ graph TD
 
 ---
 
-### 6. Design & Aesthetic System
+### 6. Project 4: Video Production & Celestial Motion Engine (Private)
+
+- **Purpose**: Autonomous, agent-aided video production engine featuring subpixel celestial tracking/locking, gigapixel panoramic stitching, and optical shutter simulation.
+- **Detailed Agent Guide**: Read [video_production/README.md](file:///c:/Users/charl/OneDrive/Documents/Derya/video_production/README.md).
+- **Core Architecture**:
+  - `core/moon_tracker.py`: Generalized celestial motion tracker, auto-detector, and 180° rotary shutter blur simulator.
+  - `core/double_vision_detector.py`: Quantitative optical QA gate detecting split celestial discs, parallax hazards, and transition ghosting.
+  - `compositing/`: Generalized 16-bit stacking (`stacker.py`), panoramic stitching (`panorama.py`), and celestial HDR (`celestial_hdr.py`).
+  - `rendering/`: Generalized timeline video engine (`timeline_renderer.py`) and platform optimizer (`render_instagram_reels.py`).
+  - `projects/`: Dedicated creative shoots (e.g. `projects/aries_moon_enchantress/camera_directions.md` & `project_manifest.json`).
+  - `archive/`: Historical exploratory shoot variations safely preserved.
+
+---
+
+### 7. Design & Aesthetic System
 
 Across all three projects, preserve the **Aramızda design philosophy**:
 - **Tone**: Quiet, mature masculine energy; protective stewardship, dignity, devotion. No militarism or aggressive jargon.
